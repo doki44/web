@@ -1,0 +1,37 @@
+
+<div class="title">Создание нового аккаунта</div>
+<form [formGroup]="RegistrationForm" (ngSubmit)="onSubmit()" >
+  <div class="container"
+       [ngClass]="{'has-error': RegistrationForm.get('email').invalid && RegistrationForm.get('email').touched}"
+       [ngClass]="{'has-error': RegistrationForm.get('password').invalid && RegistrationForm.get('password').touched}">
+    <label><b>Электронная почта</b></label>
+    <input type="text" placeholder="example@email.com" formControlName="email" name="uname" required>
+    <span class="form-help-text"
+          *ngIf="RegistrationForm.get('email').invalid && RegistrationForm.get('email').touched">
+      <span *ngIf="RegistrationForm.get('email')['errors']" required>Email не может быть пустым!</span>
+      </span>
+    <label><b>Имя</b></label>
+    <input type="text" placeholder="Имя" formControlName="name" name="uname" required>
+
+    <label><b>Пароль</b></label>
+    <input type="password" placeholder="Пароль" formControlName="password" name="psw" required>
+    <span class="form-help-text"
+          *ngIf="RegistrationForm.get('password').invalid && RegistrationForm.get('password').touched">
+      <span *ngIf="RegistrationForm.get('password')['errors']" required>Пароль не может быть пустым!</span>
+        <span *ngIf="RegistrationForm.get('password')['actualLength']!=['minLength']">Минимальная длина пароля:6
+         </span>
+    </span>
+    <label><b>Повторите пароль</b></label>
+    <input type="password" placeholder="Повторите пароль" formControlName="rptpass" name="psw" required>
+
+    <button type="submit" [disabled]="RegistrationForm.invalid" >Зарегистрироваться</button>
+
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Закрыть</button>
+  </div>
+</form>
+
+
+

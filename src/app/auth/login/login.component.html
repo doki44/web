@@ -1,0 +1,48 @@
+<form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+
+  <div [ngClass]="{'has-error': LoginForm.get('email').invalid && LoginForm.get('email').touched}">
+       <div [ngClass]="{'has-error': LoginForm.get('password').invalid && LoginForm.get('password').touched}">
+          <div
+            class="alert alert-{{message.type}}"
+            *ngIf="message.text">{{message.text}}</div>
+    <label><b>Email</b></label>
+    <input
+      type="text"
+      class="form-control underlined"
+      formControlName="email"
+      placeholder="Email"
+      name="uname" required>
+    <span class="form-help-text"
+          *ngIf="LoginForm.get('email').invalid && LoginForm.get('email').touched">
+
+      <span *ngIf="LoginForm.get('email').errors['required']">Email не может быть пустым!</span>
+        <span *ngIf="LoginForm.get('email')['errors']">Введите корректный Email!</span>
+    </span>
+
+    <label><b>Пароль</b></label>
+
+    <input
+      type="password"
+      formControlName="password"
+      placeholder="Пароль"
+      name="psw" required>
+    <span class="form-help-text"
+          *ngIf="LoginForm.get('password').invalid && LoginForm.get('password').touched">
+      <span *ngIf="LoginForm.get('password').errors['required']">Пароль не может быть пустым!</span>
+        <span *ngIf="LoginForm.get('password')['actualLength']!=['minLength']">Минимальная длина пароля:6
+         </span>
+    </span>
+    <button type="submit" [disabled]="LoginForm.invalid">Войти</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Запомнить меня
+    </label>
+       </div>
+  </div>
+
+  <div class="cancel" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Закрыть</button>
+    <span class="link__reg">Нет аккаунта?
+      <a routerLink="/registration" routerLinkActive="active">Зарегистрируйтесь!</a></span>
+  </div>
+</form>
+

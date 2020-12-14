@@ -1,0 +1,14 @@
+.text {
+  padding: 4% 8%;
+  height: auto;
+  font-family: 'Lora', cursive;
+  font-size: 1.2em;
+}
+
+.article {
+  background-color: sandybrown;
+}
+
+.article1 {
+  background-color: navajowhite;
+}
