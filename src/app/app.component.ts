@@ -1,26 +1,26 @@
 import { Component, OnInit, OnChanges, OnDestroy } from '@angular/core';
 import {Router} from '@angular/router';
+import {UserService} from './shared/services/user.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, OnChanges, OnDestroy{
-  title = 'Formula-1';
-  public regName;
-  public router: Router;
-  authCheck(): void {
-    if (localStorage.getItem('UserName') != null) {
-      this.regName = localStorage.getItem('UserName');
-    }
+  title = 'PlayMix';
+  /*get regName(): any {
+    return this.userService.authName;
+  }*/
+  constructor(private userService: UserService, private router: Router) {
   }
-  logout(): void {
-    localStorage.removeItem('UserName');
-    localStorage.clear();
-    this.router.navigate(['/']);
-  }
+
+  /*onLogout(): void {
+    this.userService.logout();
+    this.router.navigate(['/main-page']);
+
+  }*/
 ngOnInit(): void {
-  this.authCheck();
 }
 
   ngOnChanges(): void {

@@ -7,25 +7,161 @@
   margin: 0 auto;
   flex-wrap: wrap;
 }
-
+.profile__avatar {
+  width: 150px;
+  margin-top: 3%;
+  margin-left: 1%;
+  height: 150px;
+  margin-right: 10%;
+  justify-content: flex-start;
+}
 .profile__descr {
   width: 70%;
   justify-items: center;
   justify-content: center;
 }
-
 .profile__descr-title {
   font-size: 30px;
   color: #333333;
 }
-
 .profile__descr-item {
   margin-bottom: 10px;
-  background-color: black;
+  background-color: #a9a9a9;
   border-radius: 6px;
   padding: 5px 15px;
   font-size: 18px;
   border: solid 2px #474646;
 }
+
+.change-data__btn {
+  background-color: #0780dd;
+  color: #ffffff;
+  font-size: 22px;
+  font-family: Arial;
+  float: right;
+  padding: 5px;
+  border-radius: 8px;
+  border: 2px solid #3b44f8;
+}
+
+.add-article__btn {
+  margin-top: 5%;
+  background-color: #0780dd;
+  color: #ffffff;
+  font-size: 22px;
+  font-family: Arial;
+  padding: 5px;
+  border-radius: 8px;
+  border: 2px solid #3b44f8;
+}
+
+.article-list__title {
+  ont-family: Impact, Charcoal, sans-serif;
+  font-size: 25px;
+  text-decoration: underline solid #444444;
+  font-style: normal;
+  font-variant: small-caps;
+  margin: 3%;
+}
+.article-list__edit-btn {
+  background-color: #0780dd;
+  color: #ffffff;
+  font-size: 22px;
+  font-family: Arial;
+  padding: 5px;
+  border-radius: 8px;
+  border: 2px solid #3b44f8;
+}
+
+li {
+  width: 90%;
+  font-size: 20px;
+  font-family: Calibri;
+  list-style-type: none;
+  margin: 3%;
+  border: 3px solid #9d9d9d;
+  border-radius: 10px;
+  background-color: #cccccc;
+  box-shadow: 0px 0px 18px 0px rgba(55, 149, 255, 0.75);
+}
+
+/*
+
+.modal {
+  display: none; !* Hidden by default *!
+  position: fixed; !* Stay in place *!
+  z-index: 1; !* Sit on top *!
+  padding-top: 100px; !* Location of the box *!
+  left: 0;
+  top: 0;
+  width: 100%; !* Full width *!
+  height: 100%; !* Full height *!
+  overflow: auto; !* Enable scroll if needed *!
+  background-color: rgb(0,0,0); !* Fallback color *!
+  background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!
+}
+
+!* Modal Content *!
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+!* The Close Button *!
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+!* The Modal (background) *!
+.modal {
+  display: none; !* Hidden by default *!
+  position: fixed; !* Stay in place *!
+  z-index: 1; !* Sit on top *!
+  left: 0;
+  top: 0;
+  width: 100%; !* Full width *!
+  height: 100%; !* Full height *!
+  overflow: auto; !* Enable scroll if needed *!
+  background-color: rgb(0,0,0); !* Fallback color *!
+  background-color: rgba(0,0,0,0.4); !* Black w/ opacity *!
+}
+
+!* Modal Content/Box *!
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; !* 15% from the top and centered *!
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; !* Could be more or less, depending on screen size *!
+}
+
+!* The Close Button *!
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+*/
 
 /*# sourceMappingURL=profile.component.css.map */

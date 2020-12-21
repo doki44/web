@@ -89,6 +89,16 @@ span.psw {
     width: 75%;
   }
 }
-
+.footer {
+  background-color: #161616;
+  color: #a4d4e7;
+  display: flex;
+  margin-top: 10%;
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
 
 /*# sourceMappingURL=registrations.component.css.map */

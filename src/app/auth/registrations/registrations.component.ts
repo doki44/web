@@ -20,39 +20,34 @@ export class RegistrationsComponent implements OnInit {
 
   ngOnInit(): void {
     this.RegistrationForm = new FormGroup({
-      email: new FormControl(null, [Validators.required, Validators.email]),
+      email: new FormControl(null, [Validators.required, Validators.email], this.forbiddenEmails.bind(this)),
       name: new FormControl(null, [Validators.required, Validators.minLength(4)]),
-      password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
-      rptpass: new FormControl(null, [Validators.required, Validators.minLength(6)])
+      password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
+      rptpass: new FormControl(null, [Validators.required, Validators.minLength(8)])
     });
   }
-
+  forbiddenEmails(control: FormControl): Promise<any> {
+    return new Promise((resolve, reject) => {
+      this.userService.getUserByEmail(control.value)
+        .subscribe((user: User) => {
+          if (user){
+            resolve({forbiddenEmail: true});
+          }
+          else {
+            resolve(null);
+          }
+        });
+    });
+  }
   onSubmit(): void {
-    const {email, password, name} = this.RegistrationForm.value;
-    const user = new User(email, password, name, 0);
+    const {name, email, password} = this.RegistrationForm.value;
+    const user = new User(name, email, 0, password);
     this.userService.addUser(user).subscribe(() => {
       console.log(user);
       alert('Регистрация прошла успешно!');
-      localStorage.setItem('UserName', user.getName());
-      localStorage.setItem('UserEmail', user.getEmail());
-
-      this.router.navigate(['/profile'], {
-        queryParams: {
-          canLogin: true
-        }
-      });
+      this.userService.login(user);
+      this.router.navigate(['/system', 'profile']);
     });
   }
-  // forbiddenEmails(control: FormControl): Promise<any>{
-  //   return new Promise((resolve, reject) => {
-  //     this.userService.getUsers(control.value)
-  //       .subscribe((user: User) => {
-  //         if (user) {
-  //           resolve({forbiddenEmail: true});
-  //         }else{
-  //           resolve(null);
-  //         }
-  //       });
-  //   });
-  // }
+
 }

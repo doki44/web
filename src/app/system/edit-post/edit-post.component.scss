@@ -1,0 +1,69 @@
+
+.note-form{
+  display: block;
+  background-color: #cccccc;
+  border: 3px solid #999999;
+  border-radius: 9px;
+  width: 85%;
+  height: auto;
+  font-family: "Roboto Light";
+  -webkit-box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.08);
+  -moz-box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.08);
+  box-shadow: 0px 0px 10px 5px rgba(34, 60, 80, 0.08);
+  margin: 0 auto;
+  &__category{
+    margin-left: 4%;
+    font-size: 18px;
+    font-family: "Segoe UI Emoji";
+  }
+  &__textarea{
+    width: 80%;
+    height: 400px;
+    font-size: 20px;
+    background-color: #cccccc;
+    border: 1px solid #999999;
+    margin-top: 2%;
+    margin-left: 10%;
+  }
+  &__submit{
+    background-color: #0780dd;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: Arial;
+    padding: 5px; border-radius: 8px;
+    border: 2px solid #3b44f8;
+    margin-left: 15%;
+  }
+  &__reset{
+    background-color: #0780dd;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: Arial;
+    padding: 5px; border-radius: 8px;
+    border: 2px solid #3b44f8;
+    margin-left: 45%;
+  }
+  &__title{
+    font-size: 25px;
+    background-color: #cccccc;
+    margin-top: 2%;
+    width: 60%;
+    font-family: Calibri;
+    color: #ffffff;
+  }
+  &__error{
+    display: block;
+    color: #b80505;
+    font-size: 18px; font-weight: bold;
+  }
+}
+.footer {
+  background-color: #161616;
+  color: #a4d4e7;
+  display: flex;
+  font-family: "Roboto", sans-serif;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}

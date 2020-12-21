@@ -1,0 +1,120 @@
+<!-- Modal content -->
+<!--<div style="font-size: 30px; font-style: italic; color: firebrick" *ngIf="message.text">
+  {{message.text}}
+</div>-->
+<!--
+<div id="myModal" class="modal">
+  <div class="modal-content">
+      <select style="margin-left: 3%; font-size: 25px;"
+        [(ngModel)]="currentPostId"
+        (change)="onPostChange()"
+        [ngModelOptions]="{standalone: true}"
+      >
+        <option
+        *ngFor="let post of postsEdit"
+        [value]="post.getId()"
+        >
+          {{post.getTitle()}}
+        </option>
+      </select>
+    <form  #editArticleForm = "ngForm"
+           (ngSubmit)="onEditSubmit(editArticleForm)"
+           class="note-form"
+    >
+
+      <div class="form-post">
+
+        <input
+          type="text"
+          placeholder="Заголовок"
+          ngModel
+          #title = "ngModel"
+          class="note-form__title" required
+          [ngModel]="currentPost.title"
+        />
+
+        <textarea
+          ngModel
+          name="text"
+          #text="ngModel"
+          class="note-form__textarea"
+          placeholder="Начните писать здесь"
+          required
+        >
+            </textarea>
+        <div class="note-form__error"
+             *ngIf="title.invalid && title.touched">
+          <div class="note-form__error"
+               *ngIf="title > 100">Максимал. длина заголовка: 100
+          </div>
+
+        </div>
+        <div class="note-form__error" *ngIf="text.invalid && text.touched" >Описание не может быть пустым</div>
+        <br />
+        <button
+                type="submit"
+                class="note-form__submit"
+                [disabled]="editArticleForm.invalid"
+        >
+          Отправить
+        </button>
+
+        <button  class="note-form__reset" type="reset">Стереть</button>
+      </div>
+    </form>
+  </div>
+</div>
+-->
+<br>
+<div id="myModal" class="modal" *ngIf="post">
+  <div class="modal-content">
+
+    <form class="note-form" #editArticleForm = "ngForm"
+    >
+
+      <div class="form-post">
+
+        <input
+          ngModel
+          type="text"
+          name="title"
+          #title = "ngModel"
+          [(ngModel)]="post.title"
+          class="note-form__title" required
+        />
+
+        <textarea
+          ngModel
+          name="text"
+          #text="ngModel"
+          [(ngModel)]="post.text"
+
+          class="note-form__textarea"
+          required
+        >
+            </textarea>
+        <div class="note-form__error"
+             *ngIf="title.invalid && title.touched">
+          <div class="note-form__error"
+               *ngIf="title > 100">Максимал. длина заголовка: 100
+          </div>
+
+        </div>
+        <div class="note-form__error" *ngIf="text.invalid && text.touched" >Описание не может быть пустым</div>
+        <br />
+        <button
+          type="submit"
+          class="note-form__submit"
+          (click)="onEditSubmit(editArticleForm)"
+        >
+          Отправить
+        </button>
+
+        <button  class="note-form__reset" type="reset">Стереть</button>
+        <button (click)="goBack()" class="note-form__reset" type="reset">Назад</button>
+      </div>
+    </form>
+  </div>
+</div>
+<br>
+<footer class="footer">PlayMix (2020). All rights reserved</footer>

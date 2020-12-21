@@ -1,0 +1,28 @@
+<div class="header">
+  Обзоры
+</div>
+
+<div class="news-list">
+  <div class="dropdown">
+    <input type="text" style="border-radius: 5px; padding: 8px; margin: 10px;"
+           [placeholder]="searchPlaceholder"
+           [(ngModel)]="searchValue"
+    >
+    <div appDirective>
+      <button class="dropbtn">Упорядочить:</button>
+      <div  class="dropdown-content">
+        <a (click)="changeCriteria('title')">По названию</a>
+        <a (click)="changeCriteria('date')">По дате</a>
+        <a (click)="changeCriteria('id')">По номеру</a>
+      </div>
+    </div>
+  </div>
+  <br>
+  <li class="article-list__item" *ngFor="let post of posts">
+    <h3 style="border-bottom: #9d9d9d 2px solid; background-color: #7eb3e2">{{post.title}}</h3>
+    <p>{{post.text}}</p>
+    <p style="border-top: #7eb3e2 2px solid">Author:  {{post.author}}</p> <span>{{post.date}}</span>
+  </li>
+
+</div>
+<footer class="footer">PlayMix (2020). All rights reserved</footer>

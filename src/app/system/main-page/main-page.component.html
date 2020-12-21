@@ -1,0 +1,42 @@
+
+<div class="header">
+     <div class="header__title">
+       Добро пожаловать!
+     </div>
+  <div class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 4</div>
+      <img class="slide" src="assets/images/amongUs.jpg" >
+      <div class="text">Among Us</div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 4</div>
+      <img class="slide" src="assets/images/ps5vsxbox.jpg" >
+      <div class="text">PS5 vs Xbox Series X</div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 4</div>
+      <img class="slide" src="assets/images/ghostrunner.jpg" >
+      <div class="text">Ghostrunner</div>
+    </div>
+    <div class="mySlides fade">
+      <div class="numbertext">4 / 4</div>
+      <img class="slide" src="assets/images/assassins-creed-valhalla.jpg" >
+      <div class="text">Assassins Creed Valhalla</div>
+    </div>
+    <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+    <a class="next" (click)="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+</div>
+
+<div class="latest-articles">
+  <li *ngFor="let post  of posts">
+    <h3>{{post.getTitle()}}</h3>
+    <p>{{post.getText()}}</p>
+    <p>Author:  {{post.getAuthor()}}</p> <span>{{post.getDate()}}</span>
+  </li>
+
+</div>
+
+

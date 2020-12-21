@@ -1,21 +1,13 @@
-export class Message {
-  constructor(
-    public type: string,
-    public text: string
-  ) { }
-}
-
 export class User {
   constructor(
-    public email: string,
-    public password: string,
-    public name: string,
-    public id?: number
+    private name: string,
+    private email: string,
+    private id: number,
+    private password: string
   ) {}
   static transform(object: any): User {
     return  new User(object.name, object.email, object.id, object.password);
   }
-
   getPassword(): string {
     return this.password;
   }

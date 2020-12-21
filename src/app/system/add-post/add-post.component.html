@@ -1,0 +1,50 @@
+
+<div
+  [formGroup]="editProfileForm"
+  (ngSubmit)="onSubmit()"
+  class="note-form"
+  id="note-form"
+>
+  <div class="form-post">
+    <input
+      type="text"
+      placeholder="Заголовок"
+      formControlName="title"
+      class="note-form__title"
+    />
+    <label class="note-form__category">Новости
+      <input type="radio" formControlName="category"  value="news">
+    </label>
+    <label class="note-form__category">Обзоры
+      <input type="radio"  formControlName="category" value="review">
+    </label>
+    <textarea
+      formControlName="text"
+      class="note-form__textarea"
+      placeholder="Начните писать здесь"
+    >
+    </textarea>
+    <div class="note-form__error"
+         *ngIf="editProfileForm.get('title').invalid && editProfileForm.get('title').touched">
+      <div class="note-form__error"
+           *ngIf="editProfileForm.get('title')['maxLength'] > 100">Максимал. длина заголовка: 100
+      </div>
+      <div class="note-form__error"
+           *ngIf="editProfileForm">Максимал. длина заголовка: 100
+      </div>
+
+    </div>
+    <div class="note-form__error" *ngIf="editProfileForm.get('text').errors">Описание не может быть пустым</div>
+    <div class="note-form__error" *ngIf="editProfileForm.get('category').hasError('required')">Выберите категорию</div>
+    <br />
+    <button (click)="onSubmit()"
+            type="submit"
+            class="note-form__submit"
+            [disabled]="editProfileForm.invalid"
+    >
+      Отправить
+    </button>
+
+    <button  class="note-form__reset" type="reset">Стереть</button>
+  </div>
+</div>

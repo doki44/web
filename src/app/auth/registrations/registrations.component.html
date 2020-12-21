@@ -8,7 +8,10 @@
     <input type="text" placeholder="example@email.com" formControlName="email" name="uname" required>
     <span class="form-help-text"
           *ngIf="RegistrationForm.get('email').invalid && RegistrationForm.get('email').touched">
-      <span *ngIf="RegistrationForm.get('email')['errors']" required>Email не может быть пустым!</span>
+      <span *ngIf="RegistrationForm.get('email').hasError('required')">Email не может быть пустым!</span>
+      <span *ngIf="RegistrationForm.get('email').hasError('email')">Некорректный ввод Email!</span>
+      <span *ngIf="RegistrationForm.get('email').hasError('forbiddenEmail')" >Такой Email уже существует!</span>
+
       </span>
     <label><b>Имя</b></label>
     <input type="text" placeholder="Имя" formControlName="name" name="uname" required>
@@ -18,12 +21,17 @@
     <span class="form-help-text"
           *ngIf="RegistrationForm.get('password').invalid && RegistrationForm.get('password').touched">
       <span *ngIf="RegistrationForm.get('password')['errors']" required>Пароль не может быть пустым!</span>
-        <span *ngIf="RegistrationForm.get('password')['actualLength']!=['minLength']">Минимальная длина пароля:6
+        <span *ngIf="RegistrationForm.get('password')['actualLength']!=['minLength']">Минимальная длина пароля:8
          </span>
     </span>
     <label><b>Повторите пароль</b></label>
     <input type="password" placeholder="Повторите пароль" formControlName="rptpass" name="psw" required>
-
+    <span class="form-help-text"
+          *ngIf="RegistrationForm.get('rptpass').invalid && RegistrationForm.get('rptpass').touched">
+         <span *ngIf="RegistrationForm.get('password') != RegistrationForm.get('rptpass')">
+           Неверный повтор пароля
+         </span>
+    </span>
     <button type="submit" [disabled]="RegistrationForm.invalid" >Зарегистрироваться</button>
 
   </div>
@@ -32,6 +40,7 @@
     <button type="button" class="cancelbtn">Закрыть</button>
   </div>
 </form>
+<footer class="footer">PlayMix (2020). All rights reserved</footer>
 
 
 
